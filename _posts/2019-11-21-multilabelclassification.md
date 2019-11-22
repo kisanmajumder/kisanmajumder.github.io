@@ -7,4 +7,4 @@ mathjax: "true"
 
 Here's some math :
 
-\\( 1/x^{2} \\)
+\$$ 5 + 5 $$
