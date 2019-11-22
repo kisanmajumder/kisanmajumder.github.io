@@ -127,7 +127,7 @@ author:
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/kisanmajumder"
+      #url: "https://github.com/kisanmajumder"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
@@ -194,7 +194,7 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 # Conversion
 markdown: kramdown
-mathjax: true
+#mathjax: true
 highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
