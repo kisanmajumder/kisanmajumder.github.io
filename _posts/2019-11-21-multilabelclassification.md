@@ -7,4 +7,4 @@ mathjax: "true"
 
 Here's some math :
 
-\$$ 5 + 5 $$
+$$z=x+y$$
