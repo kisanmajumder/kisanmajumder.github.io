@@ -8,10 +8,10 @@ mathjax: "true"
 We often come across classification problem in which our response variable takes more than two possible discrete outcomes. For example rather than classifying our mails into two classes spam or not spam we might want to classify it into three classes such as spam, personal mail and work-related mail.
 Let's try to formalize this by looking into the probabilistic interpretation of the model where we will assume the distribution of our response variable as multinomial.
 
-In this classification settings in our training set \\( {(x^{1},y^{1}),(x^{2},y^{2}),....,(x^{m},y^{m})} \\) the response variable y can take K different values so \\( y^{m} \in {1,2...K} \\).We want our model hypothesis function to estimate the probability that \\( P(y=K\mid x) \\) for each value of \\( k=1,2,...K \\) i.e we want to estimate the probability of class label taking on each of the \\(K \\) different values conditioned on input \\( x \\).Therefore our hypothesis \\( h_\theta(x) \\) takes the form :
+In this classification settings in our training set \\( {(x^{1},y^{1}),(x^{2},y^{2}),....,(x^{m},y^{m})} \\) the response variable y can take K different values so \\( y^{m} \in {1,2...K} \\).We want our model hypothesis function to estimate the probability that \\( P(y=K\mid x) \\) for each value of \\( k=1,2,...K \\) i.e we want to estimate the probability of class label taking on each of the \\(K \\) different values conditioned on input \\( x \\).So the probability distribution of response variable takes the form :
 
 $$
-h_\theta(x)=\begin{bmatrix} P(y=1|x;\theta)
+\begin{bmatrix} P(y=1|x;\theta)
 \\ P(y=2|x;\theta)
 \\ P(y=3|x;\theta)
 \\.
@@ -25,5 +25,19 @@ To parameterize a multinomial over \\( K \\) possible outcomes we could use \\( 
 Our model assumes that conditional distribution of y given x is given by :
 $$
 P(y=i\mid x;\theta)=\phi_i
-                  =\frac{e^{\theta_i^T}x}{\sum_{j=1}{k}e^{\theta_j^T}x}
+\phi_i=\frac{e^{\theta_i^T}x}{\sum_{j=1}^{k}e^{\theta_j^T}x} ---------(1)
+$$
+
+Here \\( \theta_i \\) are the parameters of our model but notice that \\( theta_i \\) is a vector quantity since for K classes we will have to fit \\( \theta_1,\theta_2.....\theta_k \\) parameters. The relationship shown in eq. (1) is also known as SoftMax function. Now to know further about how we have arrived at this relation you can refer to links shared below. Now we can write our model hypothesis function as :
+
+$$
+h_\theta_x=\begin{bmatrix} P(y=1|x;\theta)
+\\ P(y=2|x;\theta)
+\\ P(y=3|x;\theta)
+\\.
+\\.
+\\P(y=K|x;\theta)
+\end{bmatrix} = \begin{bmatrix} \frac{e^{\theta_1^T}x}{\sum_{j=1}^{k}e^{\theta_j^T}x} \\ \frac{e^{\theta_1^T}x}{\sum_{j=1}^{k}e^{\theta_j^T}x} \\. \\. \\
+ \frac{e^{\theta_i^T}x}{\sum_{j=1}^{k}e^{\theta_j^T}x}
+ \end{bmatrix}
 $$
