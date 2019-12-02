@@ -4,7 +4,7 @@ date: 2019-11-20
 tags: [machine learning, data science]
 mathjax: "true"
 ---
-###Introduction
+### Introduction
 
 We often come across classification problem in which our response variable takes more than two possible discrete outcomes. For example rather than classifying our mails into two classes spam or not spam we might want to classify it into three classes such as spam, personal mail and work-related mail.
 Let's try to formalize this by looking into the probabilistic interpretation of this machine learning problem where we will assume the probability distribution of our response variable as multinomial.
@@ -12,7 +12,7 @@ Let's try to formalize this by looking into the probabilistic interpretation of 
 In this classification settings in the training set \\( {(x^{1},y^{1}),(x^{2},y^{2}),....,(x^{m},y^{m})} \\) response variable y can take K different values so \\( y^{m} \in {1,2...K} \\) and we want our model to estimate the probability that \\( P(y=K\mid x) \\) for each value of \\( k=1,2,...K \\) i.e we want to estimate the probability of class label taking on each of the \\(K \\) different values conditioned on input \\( x \\). So our model hypothesis function takes the form below :
 
 $$
-h\theta_x=\begin{bmatrix} P(y=1|x;\theta)
+h_\theta_x=\begin{bmatrix} P(y=1|x;\theta)
 \\ P(y=2|x;\theta)
 \\ P(y=3|x;\theta)
 \\.
@@ -43,18 +43,12 @@ h_\theta_x=\begin{bmatrix} \phi_1
 \\.
 \\.
 \\\phi_k-1
-\end{bmatrix} = \begin{bmatrix} \frac{e^{\theta_1^T}x}{\sum_{j=1}^{k}e^{\theta_j^T}x}
-\\ \frac{e^{\theta_2^T}x}{\sum_{j=1}^{k}e^{\theta_j^T}x}
-\\ \frac{e^{\theta_3^T}x}{\sum_{j=1}^{k}e^{\theta_j^T}x}
-\\.
-\\.
-\\ \frac{e^{\theta_{k-1}^T}x}{\sum_{j=1}^{k}e^{\theta_j^T}x}
 \end{bmatrix}
 $$
 
 ### Parameter fitting
 
-We now describe the parameter fitting but before that let's try to understand indicator function, indicator function \\( \1{.} \\) takes on value 1 if it's argument is true otherwise 0. For example \\( 1{2+2=4} = 1  \\) and \\( 1{3=2} = 0 \\).
+We now describe the parameter fitting but before that let's try to understand indicator function, indicator function \\( 1 \left \{ . \right \} \\) takes on value 1 if it's argument is true otherwise 0, for example \\( 1 \left \{ 2=2 \right \} = 1  \\) and \\( 1 \left \{ 2=3 \right \} = 0 \\).
 
 For fitting the parameters of the model we can use maximum likelihood estimates of \\( \theta_i \\) which are obtained by finding \\( \theta_i \\) which maximizes the likelihood of our data. We can write the Likelihood \\( l(\theta) \\) of the data :
 
@@ -66,7 +60,10 @@ The above expression comes from i.i.d assumption on the response variable, now i
 
 $$
  \log l(\theta) = \sum_i^{m} \log P(y^{i} \mid x;\theta)
- =\sum_i^m \log\prod_l^{k} {\frac{e^{\theta_l^T}x^{i}}{\sum_{j=1}^{k}e^{\theta_j^T}x^{i}}}^1{y^{i}=l}
+$$
+
+$$
+ =\sum_i^m \log\prod_l^{k} {\frac{e^{\theta_l^T}x^{i}}{\sum_{j=1}^{k}e^{\theta_j^T}x^{i}}}^{1 \left \{ y^i=l \right \}}
  $$
 
  Now to find the parameters \\( \theta \\) that maximizes the \\( \log \\) likelihood we can use iterative optimization algorithm like gradient descent or newton's method. To see the implementation in python check out my jupyter notebook.
