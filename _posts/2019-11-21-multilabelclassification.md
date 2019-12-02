@@ -38,6 +38,9 @@ $$
 To obtain the second line above you can go through reference shared below, this relationship is also known as SoftMax function. Here \\( \theta_i \\) are the parameters of our model but notice that \\( \theta_i \\) is a vector quantity since for K classes we will have to fit \\( \theta_1,\theta_2.....\theta_k \\) parameters. We can write our model hypothesis function and it's expected output as :
 
 $$
+h_\theta_x=
+$$
+$$
 \begin{bmatrix} \phi_1
 \\ \phi_2
 \\ \phi_3
@@ -47,7 +50,6 @@ $$
 \end{bmatrix}=
 \begin{bmatrix} \frac{e^{\theta_1^T}x}{\sum_{j=1}^{k}e^{\theta_j^T}x}
 \\ \frac{e^{\theta_2^T}x}{\sum_{j=1}^{k}e^{\theta_j^T}x}
-\\ \frac{e^{\theta_3^T}x}{\sum_{j=1}^{k}e^{\theta_j^T}x}
 \\.
 \\.
 \\ \frac{e^{\theta_{k-1}^T}x}{\sum_{j=1}^{k}e^{\theta_j^T}x}
