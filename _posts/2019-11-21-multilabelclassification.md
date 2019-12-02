@@ -1,5 +1,5 @@
 ---
-title: "Multi-label Classification"
+title: "Multi-class Classification"
 date: 2019-11-20
 tags: [machine learning, data science]
 mathjax: "true"
@@ -11,15 +11,10 @@ Let's try to formalize this by looking into the probabilistic interpretation of 
 
 In this classification settings in the training set \\( {(x^{1},y^{1}),(x^{2},y^{2}),....,(x^{m},y^{m})} \\) response variable y can take K different values so \\( y^{m} \in {1,2...K} \\) and we want our model to estimate the probability that \\( P(y=K\mid x) \\) for each value of \\( k=1,2,...K \\) i.e we want to estimate the probability of class label taking on each of the \\(K \\) different values conditioned on input \\( x \\). So our model hypothesis function takes the form below :
 
-
-\\[ h_\theta_x=\begin{bmatrix} P(y=1|x;\theta)
-\\ P(y=2|x;\theta)
-\\ P(y=3|x;\theta)
-\\.
-\\.
-\\P(y=K|x;\theta)
-\end{bmatrix} \\]
-
+$$
+h_\theta_x=\begin{bmatrix} P(y=1|x;\theta)
+\end{bmatrix}
+$$
 
 
 We will first parameterize the probability of our response variable taking on \\( K \\) possible outcomes. For this we can use \\( K \\) parameters \\( \phi_1,\phi_2.....\phi_k \\) specifying the probability of each of the outcomes. But if we use all the parameters it will be redundant as knowing \\( K \\) will uniquely determine last one as they must satisfy \\( \sum_{1}^{k}\phi_i=1 \\). So instead we will parametrize the response variable with only \\( k-1 \\) parameters \\( \phi_i....\phi_k-1 \\).
@@ -36,14 +31,15 @@ $$
 
 To obtain the second line above you can go through reference shared below, this relationship is also known as SoftMax function. Here \\( \theta_i \\) are the parameters of our model but notice that \\( \theta_i \\) is a vector quantity since for K classes we will have to fit \\( \theta_1,\theta_2.....\theta_k \\) parameters. We can write our model hypothesis function and it's expected output as :
 
-
-\\[ h_\theta_x=\begin{bmatrix} \phi_1
+$$
+h_\theta_x=\begin{bmatrix} \phi_1
 \\ \phi_2
 \\ \phi_3
 \\.
 \\.
 \\\phi_k-1
-\end{bmatrix} \\]
+\end{bmatrix}
+$$
 
 
 ### Parameter fitting
