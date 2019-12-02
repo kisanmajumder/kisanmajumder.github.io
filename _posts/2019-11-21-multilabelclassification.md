@@ -21,8 +21,6 @@ $$
 \end{bmatrix}
 $$
 
-
-
 We will first parameterize the probability of our response variable taking on \\( K \\) possible outcomes. For this we can use \\( K \\) parameters \\( \phi_1,\phi_2.....\phi_k \\) specifying the probability of each of the outcomes. But if we use all the parameters it will be redundant as knowing \\( K \\) will uniquely determine last one as they must satisfy \\( \sum_{1}^{k}\phi_i=1 \\). So instead we will parametrize the response variable with only \\( k-1 \\) parameters \\( \phi_i....\phi_k-1 \\).
 
 So our model assumes that conditional distribution of y given x is given by :
@@ -38,7 +36,7 @@ $$
 To obtain the second line above you can go through reference shared below, this relationship is also known as SoftMax function. Here \\( \theta_i \\) are the parameters of our model but notice that \\( \theta_i \\) is a vector quantity since for K classes we will have to fit \\( \theta_1,\theta_2.....\theta_k \\) parameters. We can write our model hypothesis function and it's expected output as :
 
 $$
-h_\theta_x=
+h_\theta x =
 $$
 $$
 \begin{bmatrix} \phi_1
@@ -59,7 +57,7 @@ $$
 
 ### Parameter fitting
 
-We now describe the parameter fitting but before that let's try to understand indicator function, indicator function \\( 1\left \{ . \right \} \\) takes on value 1 if it's argument is true otherwise 0, for example \\( 1\left \{ 2=2 \right \}=1 \\) and \\( 1\left \{ 2=3 \right \}=0 \\)
+We now describe the parameter fitting but before that let's try to understand indicator function, indicator function \\( \left \{ . \right \} \\) takes on value 1 if it's argument is true otherwise 0, for example \\( \left \{ 2+2 \right \} \\) and \\( 1\left \{ 2=3 \right \}=0 \\)
 
 For fitting the parameters of the model we can use maximum likelihood estimates of \\( \theta_i \\) which are obtained by finding \\( \theta_i \\) which maximizes the likelihood of our data. We can write the Likelihood \\( l(\theta) \\) of the data :
 
